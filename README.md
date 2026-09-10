@@ -5,6 +5,20 @@ An end-to-end **Data Analyst portfolio project** that analyzes customer churn in
 The project transforms raw customer data into cleaned analytical data, SQL-based insights, and an interactive Power BI dashboard to understand customer churn and identify segments that may require retention attention.
 
 ---
+# 📊 Dashboard Preview
+
+## Executive Dashboard
+
+![Executive Dashboard](Power_BI/Screenshots/Page_1.png)
+
+## Sales & Revenue
+
+![Customer & Churn Risk](Power_BI/Screenshots/Page_2.png)
+
+## Customer Insights
+
+![Customer Insights](Power_BI/Screenshots/Page_3.png)
+---
 
 ## 📌 Project Overview
 
