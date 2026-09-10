@@ -11,7 +11,7 @@ The project transforms raw customer data into cleaned analytical data, SQL-based
 
 ![Executive Dashboard](Power_BI/Screenshots/Page_1.png)
 
-## Sales & Revenue
+## Customer & Churn Risk
 
 ![Customer & Churn Risk](Power_BI/Screenshots/Page_2.png)
 
