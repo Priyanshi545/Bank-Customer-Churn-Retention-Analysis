@@ -330,12 +330,18 @@ The SQL queries are stored in the project's `SQL` folder.
 ## 📁 Project Structure
 
 ```text
-Bank Customer Churn & Retention Analysis/
+Bank-Customer-Churn-Retention-Analysis/
+│
+├── Power_BI/
+│   ├── Bank churn dashboard.pbix
+│   └── screenshots/
+│       ├── page1_customer_overview.png
+│       ├── page2_customer_risk_insights.png
+│       └── page3_customer_profile_insights.png
 │
 ├── data/
 │   ├── raw/
 │   │   └── Churn_Modelling.csv
-│   │
 │   └── processed/
 │       └── bank_customer_churn_cleaned.csv
 │
@@ -344,23 +350,17 @@ Bank Customer Churn & Retention Analysis/
 │   ├── 02_customer_analysis.ipynb
 │   └── 03_churn_analysis.ipynb
 │
-├── SQL/
+├── reports/
+│
+├── sql/
 │   ├── 01_data_validation.sql
 │   ├── 02_customer_analysis.sql
 │   └── 03_churn_analysis.sql
 │
-├── powerbi/
-│   ├── Bank churn dashboard.pbix
-│   └── screenshots/
-│
 ├── README.md
-├── bank_churn_report.md
 ├── requirements.txt
 └── .gitignore
 ```
-
-> Update filenames in this structure if your local project uses different notebook, SQL, or Power BI filenames.
-
 ---
 
 ## 🚀 Project Workflow
