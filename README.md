@@ -5,7 +5,38 @@ An end-to-end **Data Analyst portfolio project** that analyzes customer churn in
 The project transforms raw customer data into cleaned analytical data, SQL-based insights, and an interactive Power BI dashboard to understand customer churn and identify segments that may require retention attention.
 
 ---
+
+# 📌 Key Results
+
+**Metric**            **Result**
+
+Total Customers        10,000
+Retained Customers      7,963
+Churned Customers       2,037
+Overall Churn Rate     20.37%
+Active Members          5,151
+Inactive Members        4,849
+
+## What this project demonstrates
+
+Data cleaning and validation using Python/Pandas
+
+Exploratory customer and churn analysis
+
+Business-oriented analysis using MySQL/SQL
+
+Interactive 3-page Power BI dashboard
+
+DAX-based customer segmentation and measures
+
+Translating analytical findings into retention recommendations
+
+---
+
 # 📊 Dashboard Preview
+
+The project includes a 3-page Power BI dashboard focused on customer
+churn, customer risk, and customer profile characteristics.
 
 ## Executive Dashboard
 
@@ -20,41 +51,66 @@ The project transforms raw customer data into cleaned analytical data, SQL-based
 ![Customer Insights](Power_BI/Screenshots/Page_3.png)
 ---
 
-## 📌 Project Overview
+## 📊 Power BI Dashboard
 
-Customer churn is an important business problem for banks because losing existing customers can affect long-term revenue and customer relationships.
+The Power BI dashboard contains **three analytical pages**.
 
-This project analyzes **10,000 bank customer records** to understand:
+### Page 1 — Customer Churn Overview
 
-- Overall customer churn
-- Customer activity and engagement
-- Geographic differences
-- Demographic patterns
+Provides a high-level overview of the customer base and churn situation.
+
+Focus areas include:
+
+- Total customers
+- Churned customers
+- Retained customers
+- Overall churn rate
+- Customer demographics
+- High-level churn comparisons
+
+---
+
+### Page 2 — Customer Risk Insights
+
+Focuses on customer characteristics associated with churn risk.
+
+Key areas include:
+
+- Customer activity
+- Geography
 - Product usage
 - Credit-card ownership
-- Customer balance
-- Credit score
-- Age
-- Tenure
-- Estimated salary
+- Customer status
 
-The project follows a complete analytics workflow:
+One of the key calculated columns is:
 
-```text
-Raw Data
-   ↓
-Python / Pandas
-   ↓
-Data Cleaning & Validation
-   ↓
-MySQL / SQL Analysis
-   ↓
-Power BI Dashboard
-   ↓
-Business Insights
-   ↓
-Retention Recommendations
+```DAX
+Activity Status =
+IF(
+    bank_customers[IsActiveMember] = 1,
+    "Active",
+    "Inactive"
+)
 ```
+
+This classification is used to compare churn behavior between active and inactive customers.
+
+---
+
+### Page 3 — Customer Profile Insights
+
+Provides deeper analysis of customer profile characteristics.
+
+Variables explored include:
+
+- Age
+- Balance
+- Estimated Salary
+- Credit Score
+- Tenure
+- Number of Products
+
+This page complements the churn-focused pages by examining the underlying customer profile.
 
 ---
 
@@ -79,7 +135,7 @@ The dataset contains **10,000 customer records**.
 
 The original dataset contained 14 columns. `RowNumber` and `Surname` were removed during preprocessing because they were not required for the analytical objectives.
 
-### Final Dataset
+### Final Analytical Columns
 
 | Column | Description |
 |---|---|
@@ -105,7 +161,7 @@ The original dataset contained 14 columns. `RowNumber` and `Surname` were remove
 
 ---
 
-## 🧹 Data Cleaning
+## 🧹 Data Cleaning & Validation
 
 Data cleaning was performed using **Python and Pandas**.
 
@@ -135,39 +191,73 @@ Data cleaning was performed using **Python and Pandas**.
 
 ---
 
-## 🔎 Key Dataset Statistics
+## 🔎 Key Analytical Findings
 
-### Churn
+### 1. Overall churn is material
 
-| Metric | Value |
-|---|---:|
-| Total Customers | 10,000 |
-| Retained Customers | 7,963 |
-| Churned Customers | 2,037 |
-| Overall Churn Rate | **20.37%** |
+The dataset has an overall churn rate of 20.37%, meaning
+approximately 1 in 5 customers has exited.
 
-### Customer Activity
+**Business implication :** A meaningful portion of the customer base is
+at risk of being lost, making customer retention an important business
+focus.
 
-| Metric | Customers |
-|---|---:|
-| Active Members | 5,151 |
-| Inactive Members | 4,849 |
+### 2. Customer activity is associated with churn behavior
 
-### Credit Card
+Active and inactive customers show different churn behavior, making
+customer engagement an important dimension for retention analysis.
 
-| Metric | Customers |
-|---|---:|
-| Has Credit Card | 7,055 |
-| No Credit Card | 2,945 |
+**Business implication :** Inactive customers can be prioritized for
+targeted re-engagement initiatives.
 
-### Product Usage
+### 3. Most customers use one or two products
 
-| Products | Customers |
-|---:|---:|
-| 1 | 5,084 |
-| 2 | 4,590 |
-| 3 | 266 |
-| 4 | 60 |
+The majority of customers use either one or two banking products,
+while customers using three or four products form a much smaller
+segment.
+
+**Business implication :** Product usage should be monitored alongside
+churn rather than treated as an isolated metric.
+
+### 4. Churn should be analyzed across multiple customer characteristics
+
+Customer churn should not be attributed to a single variable. The
+analysis considers activity, geography, age, balance, product usage,
+credit score, tenure, and other customer characteristics together.
+
+**Business implication :** Segment-based retention strategies are more
+appropriate than applying one retention approach to every customer.
+
+---
+
+## 📌 Business Recommendations
+
+### Improve engagement
+
+Develop targeted engagement strategies for inactive customers.
+
+### Monitor high-risk segments
+
+Use customer characteristics to identify segments requiring additional retention attention.
+
+### Encourage appropriate product engagement
+
+Analyze product usage carefully and identify opportunities for relevant cross-selling or product adoption.
+
+### Use customer segmentation
+
+Create targeted retention strategies rather than applying the same approach to every customer.
+
+### Develop predictive churn modeling
+
+A future version of this project can use machine learning to predict the probability of customer churn.
+
+Potential models include:
+
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- Gradient Boosting
 
 ---
 
@@ -237,120 +327,6 @@ The SQL queries are stored in the project's `SQL` folder.
 
 ---
 
-## 📊 Power BI Dashboard
-
-The Power BI dashboard contains **three analytical pages**.
-
-### Page 1 — Customer Churn Overview
-
-Provides a high-level overview of the customer base and churn situation.
-
-Focus areas include:
-
-- Total customers
-- Churned customers
-- Retained customers
-- Overall churn rate
-- Customer demographics
-- High-level churn comparisons
-
----
-
-### Page 2 — Customer Risk Insights
-
-Focuses on customer characteristics associated with churn risk.
-
-Key areas include:
-
-- Customer activity
-- Geography
-- Product usage
-- Credit-card ownership
-- Customer status
-
-One of the key calculated columns is:
-
-```DAX
-Activity Status =
-IF(
-    bank_customers[IsActiveMember] = 1,
-    "Active",
-    "Inactive"
-)
-```
-
-This classification is used to compare churn behavior between active and inactive customers.
-
----
-
-### Page 3 — Customer Profile Insights
-
-Provides deeper analysis of customer profile characteristics.
-
-Variables explored include:
-
-- Age
-- Balance
-- Estimated Salary
-- Credit Score
-- Tenure
-- Number of Products
-
-This page complements the churn-focused pages by examining the underlying customer profile.
-
----
-
-## 💡 Key Insights
-
-### 1. Overall churn is significant
-
-The dataset has a **20.37% churn rate**, meaning roughly one out of every five customers has exited.
-
-### 2. Customer activity is an important retention dimension
-
-Active and inactive customers can be compared to identify differences in churn behavior and engagement.
-
-### 3. Most customers use one or two products
-
-The majority of customers have either one or two banking products, while customers with three or four products represent a much smaller segment.
-
-### 4. Customer characteristics should be analyzed together
-
-Churn should not be attributed to a single variable. Factors such as activity, geography, age, balance, product usage, and credit score should be considered together when identifying customer-risk segments.
-
----
-
-## 📌 Business Recommendations
-
-### Improve engagement
-
-Develop targeted engagement strategies for inactive customers.
-
-### Monitor high-risk segments
-
-Use customer characteristics to identify segments requiring additional retention attention.
-
-### Encourage appropriate product engagement
-
-Analyze product usage carefully and identify opportunities for relevant cross-selling or product adoption.
-
-### Use customer segmentation
-
-Create targeted retention strategies rather than applying the same approach to every customer.
-
-### Develop predictive churn modeling
-
-A future version of this project can use machine learning to predict the probability of customer churn.
-
-Potential models include:
-
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- Gradient Boosting
-
----
-
 ## 📁 Project Structure
 
 ```text
@@ -388,6 +364,23 @@ Bank Customer Churn & Retention Analysis/
 ---
 
 ## 🚀 Project Workflow
+
+Raw Data
+   ↓
+Python / Pandas
+   ↓
+Data Cleaning & Validation
+   ↓
+Exploratory Data Analysis
+   ↓
+MySQL / SQL Analysis
+   ↓
+Power BI Dashboard
+   ↓
+Business Insights
+   ↓
+Retention Recommendations
+
 
 ### Step 1 — Data Cleaning
 
